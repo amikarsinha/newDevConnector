@@ -1,0 +1,7 @@
+{
+    "mongoURI" : "mongodb+srv://amikar1234:amikar1234@devconnector.dshpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken",
+    "githubClientId": "0970cbb23dab39479512",
+    "githubSecret": "aae1287b1cacfd12b56675ac1676dfa0ca694aad",
+    "githubToken" : "aae1287b1cacfd12b56675ac1676dfa0ca694aad"
+}
