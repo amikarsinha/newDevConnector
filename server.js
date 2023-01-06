@@ -2,7 +2,8 @@ const express = require('express');
 const connectDB = require('./config/db');
 //const path = require('path');
 const {jwtSecret, mongoURI} = require('./config/keys')
-
+const dotenv = require('dotenv')
+dotenv.config();
 const app = express();
 
 // Connect Database
