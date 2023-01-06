@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/db');
-const path = require('path');
+//const path = require('path');
+const {jwtSecret, mongoURI} = require('./config/keys')
 
 const app = express();
 
@@ -17,13 +18,13 @@ app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 
 // Serve static assets in production
-if (process.env.NODE_ENV === 'production') {
-  // Set static folder
+if(process.env.NODE_ENV=='production'){
+  const path = require('path')
 
-  app.get('/', (req, res) => {
-    app.use(express.static(path.resolve(__dirname, 'client', 'build')));
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
+  app.get('/',(req,res)=>{
+      app.use(express.static(path.resolve(__dirname,'client','build')))
+      res.sendFile(path.resolve(__dirname,'client','build','index.html'))
+  })
 }
 
 const PORT = process.env.PORT || 5000;
