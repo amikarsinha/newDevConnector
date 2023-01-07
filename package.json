@@ -9,7 +9,7 @@
     "server": "nodemon server",
     "client": "npm start --prefix client",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.config.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run start\" \"npm run client\""
   },
   "author": "Amikar Sinha",
   "license": "MIT",

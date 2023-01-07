@@ -1,13 +1,13 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const path = require('path');
-const {jwtSecret, mongoURI} = require('./config/keys')
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
 dotenv.config();
 const app = express();
 
 // Connect Database
 connectDB();
+
 
 // Init Middleware
 app.use(express.json({extended : false}));
@@ -19,14 +19,12 @@ app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 
 // Serve static assets in production
-if(process.env.NODE_ENV=='production'){
-  const path = require('path')
+//static files
+app.use(express.static(path.join(__dirname, "./client/build")));
 
-  app.get('/',(req,res)=>{
-      app.use(express.static(path.resolve(__dirname,'client','build')))
-      res.sendFile(path.resolve(__dirname,'client','build','index.html'))
-  })
-}
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 const PORT = process.env.PORT || 5000;
 

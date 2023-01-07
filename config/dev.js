@@ -1,4 +1,0 @@
-module.exports = {
-    mongoURI:'mongodb+srv://amikar1234:amikar1234@devconnector.dshpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-    jwtSecret:'mysecrettoken'
-}
